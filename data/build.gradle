@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    // LOCAL
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':domain')
+
+    // KOTLIN
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    // TESTING
+    testImplementation "junit:junit:$jUnitVersion"
+    androidTestImplementation "androidx.test:runner:$runnerVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+
+    // RETROFIT 2
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+}

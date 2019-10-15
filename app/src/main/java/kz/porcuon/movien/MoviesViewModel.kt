@@ -21,8 +21,7 @@ class MoviesViewModel : AbstractViewModel() {
     private fun loadItems() {
         viewState.value = ViewState.Loading
         scope.launch {
-            getPopularMoviesUseCase(
-                params = page,
+            getPopularMoviesUseCase(params = page,
                 onSuccess = { handleGetPopularMoviesSuccess(it) },
                 onFailure = { handleGetPopularMoviesFailure(it) }
             )

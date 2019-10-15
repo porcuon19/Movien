@@ -18,5 +18,9 @@
     <fragment
         android:id="@+id/movieDetailsFragment"
         android:name="kz.porcuon.movien.MovieDetailsFragment"
-        android:label="MovieDetailsFragment" />
+        android:label="MovieDetailsFragment" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

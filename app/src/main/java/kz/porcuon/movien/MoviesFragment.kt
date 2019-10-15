@@ -5,6 +5,9 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_movies.*
 import kz.porcuon.domain.data.MovieResponse
 
 class MoviesFragment : AbstractFragment() {
@@ -30,8 +33,15 @@ class MoviesFragment : AbstractFragment() {
     }
 
     private fun showMovies(movies: List<MovieResponse.Movie>) {
-        movies.forEach {
-            Log.d("Tag", "${it.title}")
-        }
+        Log.d("tag", "showMovies")
+        val adapter = RVMoviesAdapter(context!!, movies)
+        rvMovies.visibility = View.VISIBLE
+        rvMovies.layoutManager = LinearLayoutManager(context)
+        rvMovies.adapter = adapter
+    }
+
+    private fun navigateToMovieDetails(movieId: Int) {
+        val directions = MoviesFragmentDirections.actionMoviesFragmentToMovieDetailsFragment(movieId)
+//        Navigation.findNavController(it).navigate(directions)
     }
 }

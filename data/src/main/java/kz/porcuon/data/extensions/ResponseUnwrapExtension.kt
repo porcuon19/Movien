@@ -1,4 +1,4 @@
-package kz.porcuon.data
+package kz.porcuon.data.extensions
 
 import retrofit2.Response
 

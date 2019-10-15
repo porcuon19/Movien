@@ -1,5 +1,6 @@
-package kz.porcuon.data
+package kz.porcuon.data.interceptors
 
+import kz.porcuon.data.configs.API_KEY
 import okhttp3.Interceptor
 import okhttp3.Response
 

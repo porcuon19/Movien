@@ -1,4 +1,4 @@
-package kz.porcuon.movien
+package kz.porcuon.movien.support
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope

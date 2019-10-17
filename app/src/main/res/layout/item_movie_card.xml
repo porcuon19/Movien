@@ -10,9 +10,40 @@
         android:id="@+id/ivPoster"
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:background="#000000"
+        android:background="#787878"
         android:scaleType="fitXY"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_movie_card_background"
+        app:layout_constraintTop_toTopOf="@id/ivPoster" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_movie_card_background_bottom"
+        app:layout_constraintBottom_toBottomOf="@id/ivPoster">
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/shape_rating_background_transparent"
+            android:drawableStart="@drawable/ic_star_orange_24dp"
+            android:drawablePadding="4dp"
+            android:paddingStart="12dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="4dp"
+            android:text="4.7"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/tvTitle"
@@ -20,12 +51,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:textColor="#FFF"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivShare"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivPoster" />
+
+    <ImageView
+        android:id="@+id/ivShare"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_share_white_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivPoster" />
 
     <TextView
@@ -33,11 +74,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
         android:ellipsize="end"
-        android:maxLines="2"
         android:lineSpacingExtra="2dp"
+        android:maxLines="2"
         android:textColor="#80FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

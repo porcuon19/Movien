@@ -5,5 +5,8 @@ import kz.porcuon.domain.data.MovieResponse
 sealed class ViewState {
     class ShowItems(val items: List<MovieResponse.Movie>) : ViewState()
 
-    object Loading : ViewState()
+    object ShowLoading : ViewState()
+    object ShowPaginating : ViewState()
+    object HidePaginating : ViewState()
+    object HideLoading : ViewState()
 }

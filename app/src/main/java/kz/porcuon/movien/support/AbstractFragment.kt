@@ -1,4 +1,4 @@
-package kz.porcuon.movien
+package kz.porcuon.movien.support
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,7 +1,7 @@
 package kz.porcuon.movien
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -9,6 +9,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_movies.*
 import kz.porcuon.domain.data.MovieResponse
+import kz.porcuon.movien.support.AbstractFragment
+import kz.porcuon.movien.support.PaginationScrollListener
 
 class MoviesFragment : AbstractFragment() {
 
@@ -16,32 +18,77 @@ class MoviesFragment : AbstractFragment() {
         ViewModelProviders.of(this).get(MoviesViewModel::class.java)
     }
 
+    private val adapter: RVMoviesAdapter by lazy {
+        RVMoviesAdapter(context!!, this::navigateToMovieDetails, this::shareMovieUrl, mutableListOf())
+    }
+
+    private var isPaginating = false
+
     override val layoutId: Int = R.layout.fragment_movies
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupUI()
         moviesViewModel.viewState.observe(viewLifecycleOwner, Observer { handleViewStateChange(it) })
     }
 
+    private fun setupUI() {
+        val layoutManager = LinearLayoutManager(context)
+        rvMovies.layoutManager = layoutManager
+        rvMovies.adapter = adapter
+        rvMovies.addOnScrollListener(object : PaginationScrollListener(layoutManager) {
+
+            override fun isLoading() = isPaginating
+
+            override fun loadItems() {
+                moviesViewModel.loadItems()
+            }
+        })
+    }
+
     private fun handleViewStateChange(viewState: ViewState) = when (viewState) {
-        is ViewState.Loading -> showLoading()
+        is ViewState.ShowLoading -> showLoading()
+        is ViewState.HideLoading -> hideLoading()
+        is ViewState.ShowPaginating -> showPaginating()
+        is ViewState.HidePaginating -> hidePaginating()
         is ViewState.ShowItems -> showMovies(viewState.items)
     }
 
     private fun showLoading() {
+        flShimmer.visibility = View.VISIBLE
+        flShimmer.startShimmer()
+    }
 
+    private fun hideLoading() {
+        flShimmer.visibility = View.GONE
+        flShimmer.stopShimmer()
+    }
+
+    private fun showPaginating() {
+        isPaginating = true
+        adapter.addLoader()
+    }
+
+    private fun hidePaginating() {
+        isPaginating = false
+        adapter.removeLoader()
     }
 
     private fun showMovies(movies: List<MovieResponse.Movie>) {
-        Log.d("tag", "showMovies")
-        val adapter = RVMoviesAdapter(context!!, movies)
         rvMovies.visibility = View.VISIBLE
-        rvMovies.layoutManager = LinearLayoutManager(context)
-        rvMovies.adapter = adapter
+        adapter.addItems(movies.toMutableList())
     }
 
-    private fun navigateToMovieDetails(movieId: Int) {
+    private fun navigateToMovieDetails(view: View, movieId: Int) {
         val directions = MoviesFragmentDirections.actionMoviesFragmentToMovieDetailsFragment(movieId)
-//        Navigation.findNavController(it).navigate(directions)
+        Navigation.findNavController(view).navigate(directions)
+    }
+
+    private fun shareMovieUrl(movieId: Int) {
+        val intent = Intent(Intent.ACTION_SEND)
+        val url = "https://movien.kz/$movieId"
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, url)
+        startActivity(intent)
     }
 }

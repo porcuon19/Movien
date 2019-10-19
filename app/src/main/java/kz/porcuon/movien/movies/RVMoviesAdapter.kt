@@ -1,4 +1,4 @@
-package kz.porcuon.movien
+package kz.porcuon.movien.movies
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import kotlinx.android.synthetic.main.item_movie_card.view.*
 import kz.porcuon.domain.data.MovieResponse
+import kz.porcuon.movien.R
 import kz.porcuon.movien.support.RVPageableAdapter
 import kz.porcuon.movien.support.VHAbstract
 

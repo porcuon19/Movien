@@ -1,4 +1,4 @@
-package kz.porcuon.movien
+package kz.porcuon.movien.movies
 
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
@@ -15,43 +15,39 @@ class MoviesViewModel : AbstractViewModel() {
 
     private val getPopularMoviesUseCase = GetPopularMoviesUseCase(ServiceLocator.movieRepository)
 
-    internal val viewState: MutableLiveData<ViewState> = MutableLiveData()
+    internal val viewState: MutableLiveData<MoviesViewState> = MutableLiveData()
 
     init {
-        loadItems()
-        ViewState.ShowLoading
+        loadMovies()
+        MoviesViewState.ShowLoading
     }
 
     private fun handleGetPopularMoviesSuccess(movieResponse: MovieResponse) {
         if (isFirstLoad) {
-            viewState.value = ViewState.HideLoading
+            viewState.value = MoviesViewState.HideLoading
             isFirstLoad = false
         } else {
-            viewState.value = ViewState.HidePaginating
+            viewState.value = MoviesViewState.HidePaginating
         }
 
-        viewState.value = ViewState.ShowItems(movieResponse.results ?: ArrayList())
+        viewState.value = MoviesViewState.ShowMovies(movieResponse.results ?: ArrayList())
         page++
     }
 
+    /*TODO add proper error handling*/
     private fun handleGetPopularMoviesFailure(throwable: Throwable) {
         if (isFirstLoad) {
-            viewState.value = ViewState.HideLoading
+            viewState.value = MoviesViewState.HideLoading
             isFirstLoad = false
         } else {
-            viewState.value = ViewState.HidePaginating
+            viewState.value = MoviesViewState.HidePaginating
         }
     }
 
-    fun loadItems() {
+    fun loadMovies() {
         if (!isFirstLoad) {
-            viewState.value = ViewState.ShowPaginating
+            viewState.value = MoviesViewState.ShowPaginating
         }
-        scope.launch {
-            getPopularMoviesUseCase(params = page,
-                onSuccess = { handleGetPopularMoviesSuccess(it) },
-                onFailure = { handleGetPopularMoviesFailure(it) }
-            )
-        }
+        scope.launch { getPopularMoviesUseCase(page, ::handleGetPopularMoviesSuccess, ::handleGetPopularMoviesFailure) }
     }
 }

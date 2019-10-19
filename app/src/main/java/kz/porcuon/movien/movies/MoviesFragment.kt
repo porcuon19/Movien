@@ -1,4 +1,4 @@
-package kz.porcuon.movien
+package kz.porcuon.movien.movies
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_movies.*
 import kz.porcuon.domain.data.MovieResponse
+import kz.porcuon.movien.R
 import kz.porcuon.movien.support.AbstractFragment
 import kz.porcuon.movien.support.PaginationScrollListener
 
@@ -19,7 +20,12 @@ class MoviesFragment : AbstractFragment() {
     }
 
     private val adapter: RVMoviesAdapter by lazy {
-        RVMoviesAdapter(context!!, this::navigateToMovieDetails, this::shareMovieUrl, mutableListOf())
+        RVMoviesAdapter(
+            context!!,
+            this::navigateToMovieDetails,
+            this::shareMovieUrl,
+            mutableListOf()
+        )
     }
 
     private var isPaginating = false
@@ -41,17 +47,17 @@ class MoviesFragment : AbstractFragment() {
             override fun isLoading() = isPaginating
 
             override fun loadItems() {
-                moviesViewModel.loadItems()
+                moviesViewModel.loadMovies()
             }
         })
     }
 
-    private fun handleViewStateChange(viewState: ViewState) = when (viewState) {
-        is ViewState.ShowLoading -> showLoading()
-        is ViewState.HideLoading -> hideLoading()
-        is ViewState.ShowPaginating -> showPaginating()
-        is ViewState.HidePaginating -> hidePaginating()
-        is ViewState.ShowItems -> showMovies(viewState.items)
+    private fun handleViewStateChange(viewState: MoviesViewState) = when (viewState) {
+        is MoviesViewState.ShowLoading -> showLoading()
+        is MoviesViewState.HideLoading -> hideLoading()
+        is MoviesViewState.ShowPaginating -> showPaginating()
+        is MoviesViewState.HidePaginating -> hidePaginating()
+        is MoviesViewState.ShowMovies -> showMovies(viewState.movies)
     }
 
     private fun showLoading() {

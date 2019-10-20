@@ -1,6 +1,7 @@
 package kz.porcuon.data.entities
 
 import com.google.gson.annotations.SerializedName
+import kz.porcuon.data.configs.IMAGE_LOGO_URL
 import kz.porcuon.data.configs.IMAGE_URL
 import kz.porcuon.domain.data.MovieFullResponse
 import java.io.Serializable
@@ -109,7 +110,7 @@ fun MovieFullResponseEntity.toData(): MovieFullResponse {
         productionCompanies = entity.productionCompanies?.map {
             MovieFullResponse.ProductionCompany().apply {
                 id = it.id
-                logoPath = "$IMAGE_URL${it.logoPath}"
+                logoPath = "$IMAGE_LOGO_URL${it.logoPath}"
                 name = it.name
                 originCountry = it.originCountry
             }

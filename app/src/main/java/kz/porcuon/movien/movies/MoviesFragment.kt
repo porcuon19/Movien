@@ -43,7 +43,6 @@ class MoviesFragment : AbstractFragment() {
         rvMovies.layoutManager = layoutManager
         rvMovies.adapter = adapter
         rvMovies.addOnScrollListener(object : PaginationScrollListener(layoutManager) {
-
             override fun isLoading() = isPaginating
 
             override fun loadItems() {

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import kotlinx.android.synthetic.main.item_movie_card.view.*
+import kotlinx.android.synthetic.main.vh_movie_card.view.*
 import kz.porcuon.domain.data.MovieResponse
 import kz.porcuon.movien.R
 import kz.porcuon.movien.support.RVPageableAdapter
@@ -22,15 +22,15 @@ class RVMoviesAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHAbstract<MovieResponse.Movie> {
         val view = LayoutInflater.from(context).inflate(viewType, parent, false)
         return when(viewType) {
-            R.layout.item_loader -> VHLoader(view)
-            R.layout.item_movie_card -> VHMovie(view)
+            R.layout.vh_loader -> VHLoader(view)
+            R.layout.vh_movie_card -> VHMovie(view)
             else -> throw NoSuchElementException()
         }
     }
 
     override fun getItemViewType(position: Int) = when {
-        (position == items.size - 1 && isLoaderVisible) -> R.layout.item_loader
-        else -> R.layout.item_movie_card
+        (position == items.size - 1 && isLoaderVisible) -> R.layout.vh_loader
+        else -> R.layout.vh_movie_card
     }
 
     inner class VHMovie(itemView: View) : VHAbstract<MovieResponse.Movie>(itemView) {

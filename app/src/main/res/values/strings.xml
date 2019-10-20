@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Movien</string>
+
+    <!--MOVIE DETAILS-->
+    <string name="movie_details_overview">Overview</string>
+    <string name="movie_details_rating">Rating</string>
+    <string name="movie_details_rating_holder">%1s by %2d raters.</string>
+    <string name="movie_details_release_date">Release date</string>
+    <string name="movie_details_genres">Genres</string>
+    <string name="movie_details_budget">Budget</string>
 </resources>

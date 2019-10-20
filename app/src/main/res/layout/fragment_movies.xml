@@ -6,7 +6,6 @@
     android:background="@color/colorPrimary"
     android:fitsSystemWindows="true">
 
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,11 +40,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/item_movie_card_placeholder" />
+                <include layout="@layout/vh_movie_card_placeholder" />
 
-                <include layout="@layout/item_movie_card_placeholder" />
+                <include layout="@layout/vh_movie_card_placeholder" />
 
-                <include layout="@layout/item_movie_card_placeholder" />
+                <include layout="@layout/vh_movie_card_placeholder" />
             </LinearLayout>
         </com.facebook.shimmer.ShimmerFrameLayout>
     </androidx.core.widget.NestedScrollView>

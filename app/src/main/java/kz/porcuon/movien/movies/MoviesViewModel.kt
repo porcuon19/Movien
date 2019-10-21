@@ -19,7 +19,7 @@ class MoviesViewModel : AbstractViewModel() {
 
     init {
         loadMovies()
-        MoviesViewState.ShowLoading
+        viewState.value = MoviesViewState.ShowLoading
     }
 
     private fun handleGetPopularMoviesSuccess(movieResponse: MovieResponse) {

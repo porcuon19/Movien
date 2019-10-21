@@ -2,6 +2,7 @@ package kz.porcuon.movien.movies
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -82,6 +83,7 @@ class MoviesFragment : AbstractFragment() {
     private fun showMovies(movies: List<MovieResponse.Movie>) {
         rvMovies.visibility = View.VISIBLE
         adapter.addItems(movies.toMutableList())
+        Log.d("TAG", "showMovies called")
     }
 
     private fun navigateToMovieDetails(view: View, movieId: Int) {

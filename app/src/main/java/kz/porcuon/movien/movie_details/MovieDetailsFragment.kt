@@ -1,6 +1,7 @@
 package kz.porcuon.movien.movie_details
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -97,6 +98,7 @@ class MovieDetailsFragment : AbstractFragment() {
 
         tvOverview.text = overview
         tvRating.text = getString(R.string.movie_details_rating_holder, voteAverage.toString(), voteCount)
+        tvStatus.text = status
         tvReleaseDate.text = releaseDate
         tvBudget.text = DecimalFormat("#,###,###").format(budget)
 

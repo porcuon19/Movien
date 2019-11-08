@@ -21,12 +21,7 @@ class MoviesFragment : AbstractFragment() {
     }
 
     private val adapter: RVMoviesAdapter by lazy {
-        RVMoviesAdapter(
-            context!!,
-            this::navigateToMovieDetails,
-            this::shareMovieUrl,
-            mutableListOf()
-        )
+        RVMoviesAdapter(context!!, ::navigateToMovieDetails, ::shareMovieUrl, mutableListOf())
     }
 
     private var isPaginating = false
@@ -36,7 +31,9 @@ class MoviesFragment : AbstractFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
-        moviesViewModel.viewState.observe(viewLifecycleOwner, Observer { handleViewStateChange(it) })
+        moviesViewModel.viewState.observe(
+            viewLifecycleOwner,
+            Observer { handleViewStateChange(it) })
     }
 
     private fun setupUI() {

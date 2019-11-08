@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/moviesFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/moviesFragment"
@@ -14,14 +14,28 @@
             app:enterAnim="@anim/enter_right_to_left"
             app:exitAnim="@anim/exit_right_to_left"
             app:popEnterAnim="@anim/enter_left_to_right"
-            app:popExitAnim="@anim/exit_left_to_right"/>
+            app:popExitAnim="@anim/exit_left_to_right" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"
         android:name="kz.porcuon.movien.movie_details.MovieDetailsFragment"
-        android:label="MovieDetailsFragment" >
+        android:label="MovieDetailsFragment">
         <argument
             android:name="movieId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="kz.porcuon.movien.login.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

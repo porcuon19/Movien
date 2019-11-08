@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Movien</string>
-
+    
+    <!--LOGIN-->
+    <string name="login_login">Login</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_field_is_empty">Field cannot be empty</string>
+    <string name="login_invalid_credentials">Invalid username or password</string>
     <!--MOVIE DETAILS-->
     <string name="movie_details_overview">Overview</string>
     <string name="movie_details_rating">Rating</string>

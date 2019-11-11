@@ -1,4 +1,4 @@
-package kz.porcuon.data
+package kz.porcuon.data.sources
 
 import kz.porcuon.data.di.ServiceLocator
 import kz.porcuon.data.entities.toData
@@ -7,7 +7,7 @@ import kz.porcuon.domain.data.MovieFullResponse
 import kz.porcuon.domain.data.MovieResponse
 import kz.porcuon.domain.repositories.MovieRepository
 
-class MovieDataSource : MovieRepository {
+class MovieSource : MovieRepository {
 
     private val movieApi = ServiceLocator.movieApi
 

@@ -2,10 +2,13 @@ package kz.porcuon.data.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import kz.porcuon.data.configs.BASE_URL
+import kz.porcuon.data.AuthenticationApi
+import kz.porcuon.data.AuthenticationSource
 import kz.porcuon.data.MovieApi
-import kz.porcuon.data.MovieDataSource
+import kz.porcuon.data.configs.BASE_URL
 import kz.porcuon.data.interceptors.ParamsInterceptor
+import kz.porcuon.data.sources.MovieSource
+import kz.porcuon.domain.repositories.AuthenticationRepository
 import kz.porcuon.domain.repositories.MovieRepository
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -40,5 +43,9 @@ object ServiceLocator {
 
     val movieApi: MovieApi by lazy { retrofit.create(MovieApi::class.java) }
 
-    val movieRepository: MovieRepository by lazy { MovieDataSource() }
+    val authenticationApi: AuthenticationApi by lazy { retrofit.create(AuthenticationApi::class.java) }
+
+    val movieRepository: MovieRepository by lazy { MovieSource() }
+
+    val authenticationRepository: AuthenticationRepository by lazy { AuthenticationSource() }
 }

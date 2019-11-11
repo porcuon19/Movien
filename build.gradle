@@ -17,6 +17,7 @@ buildscript {
         glideVersion = '4.9.0'
 
         retrofitVersion = '2.6.0'
+        hawkVersion = '2.0.1'
     }
     repositories {
         google()

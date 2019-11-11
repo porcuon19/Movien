@@ -7,10 +7,12 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
+private const val MOVIE_URL = "3/movie"
+
 interface MovieApi {
-    @GET("3/movie/popular")
+    @GET("$MOVIE_URL/popular")
     suspend fun getPopularMovies(@Query("page") page: Int): Response<MovieResponseEntity>
 
-    @GET("3/movie/{id}")
+    @GET("$MOVIE_URL/{id}")
     suspend fun getMovieById(@Path("id") movieId: Int): Response<MovieFullResponseEntity>
 }

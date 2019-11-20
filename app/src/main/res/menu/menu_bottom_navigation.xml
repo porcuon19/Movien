@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <!--TODO add string resources-->
     <item
-        android:id="@+id/menu_bottom_home"
+        android:id="@+id/menu_bottom_popular"
         android:enabled="true"
         android:icon="@drawable/ic_popular_white_24dp"
         android:title="Popular"

@@ -13,8 +13,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if (isSessionIdPresent()) {
-            val directions = LoginFragmentDirections.actionLoginFragmentToMoviesFragment()
+            val directions = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
             Navigation.findNavController(this, R.id.navHostFragment).navigate(directions)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return Navigation.findNavController(this, R.id.navHostFragment).navigateUp()
     }
 }

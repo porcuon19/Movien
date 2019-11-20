@@ -9,6 +9,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_movies.*
 import kz.porcuon.domain.data.MovieResponse
+import kz.porcuon.movien.HomeFragmentDirections
 import kz.porcuon.movien.R
 import kz.porcuon.movien.support.AbstractFragment
 import kz.porcuon.movien.support.PaginationScrollListener
@@ -82,7 +83,7 @@ class MoviesFragment : AbstractFragment() {
     }
 
     private fun navigateToMovieDetails(view: View, movieId: Int) {
-        val directions = MoviesFragmentDirections.actionMoviesFragmentToMovieDetailsFragment(movieId)
+        val directions = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(movieId)
         Navigation.findNavController(view).navigate(directions)
     }
 

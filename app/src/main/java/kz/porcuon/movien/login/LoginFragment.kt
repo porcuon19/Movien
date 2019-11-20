@@ -73,7 +73,7 @@ class LoginFragment : AbstractFragment() {
     }
 
     private fun navigateToHome() {
-        val directions = LoginFragmentDirections.actionLoginFragmentToMoviesFragment()
+        val directions = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
         Navigation.findNavController(view!!).navigate(directions)
     }
 }

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/movieDetailsFragment"
-        android:name="kz.porcuon.movien.movie_details.MovieDetailsFragment"
+        android:name="kz.porcuon.movien.flow.movie_details.MovieDetailsFragment"
         android:label="MovieDetailsFragment">
         <argument
             android:name="movieId"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="kz.porcuon.movien.login.LoginFragment"
+        android:name="kz.porcuon.movien.flow.login.LoginFragment"
         android:label="LoginFragment">
 
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="kz.porcuon.movien.HomeFragment"
+        android:name="kz.porcuon.movien.flow.home.HomeFragment"
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_movieDetailsFragment"

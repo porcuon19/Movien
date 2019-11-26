@@ -1,10 +1,10 @@
 package kz.porcuon.domain.repositories
 
-import kz.porcuon.domain.data.MovieFullResponse
-import kz.porcuon.domain.data.MovieResponse
+import kz.porcuon.domain.data.movie.MovieFull
+import kz.porcuon.domain.data.movie.MovieResponse
 
 interface MovieRepository {
     suspend fun getPopularMovies(page: Int): MovieResponse
 
-    suspend fun getMovieById(movieId: Int): MovieFullResponse
+    suspend fun getMovieById(movieId: Int): MovieFull
 }

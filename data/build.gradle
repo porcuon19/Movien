@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -42,6 +42,14 @@ dependencies {
     // RETROFIT 2
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // KOIN
+    implementation "org.koin:koin-android:$koinVersion"
+
+    // ROOM
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
 
     // HAWK
     implementation "com.orhanobut:hawk:$hawkVersion"

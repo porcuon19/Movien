@@ -1,11 +1,10 @@
 package kz.porcuon.domain.use_cases
 
-import kz.porcuon.domain.Either
-import kz.porcuon.domain.Failure
-import kz.porcuon.domain.Success
-import kz.porcuon.domain.UseCase
-import kz.porcuon.domain.data.LoginParams
+import kz.porcuon.domain.functional.Either
+import kz.porcuon.domain.functional.Failure
+import kz.porcuon.domain.functional.Success
 import kz.porcuon.domain.repositories.AuthenticationRepository
+import kz.porcuon.domain.use_cases.request_params.LoginParams
 
 class LoginUseCase(
     private val authenticationRepository: AuthenticationRepository

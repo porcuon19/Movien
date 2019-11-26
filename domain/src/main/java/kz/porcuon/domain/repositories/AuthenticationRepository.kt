@@ -1,7 +1,7 @@
 package kz.porcuon.domain.repositories
 
-import kz.porcuon.domain.data.RequestToken
-import kz.porcuon.domain.data.Session
+import kz.porcuon.domain.data.auth.RequestToken
+import kz.porcuon.domain.data.auth.Session
 
 interface AuthenticationRepository {
     suspend fun getRequestToken(): RequestToken

@@ -32,7 +32,9 @@ class MovieDetailsFragment : AbstractFragment() {
         setupUI()
 
         val movieId = arguments?.let { MovieDetailsFragmentArgs.fromBundle(it).movieId }
-        movieDetailsViewModel.viewState.observe(viewLifecycleOwner, Observer { handleViewStateChange(it) })
+        movieDetailsViewModel.viewState.observe(
+            viewLifecycleOwner,
+            Observer { handleViewStateChange(it) })
         movieDetailsViewModel.loadMovie(movieId ?: 0)
     }
 
@@ -58,6 +60,7 @@ class MovieDetailsFragment : AbstractFragment() {
                 }
             }
         })
+        btnReviews.setOnClickListener(::navigateToReviews)
     }
 
     private fun onBackButtonClicked(view: View) {
@@ -70,6 +73,13 @@ class MovieDetailsFragment : AbstractFragment() {
             return true
         }
         return false
+    }
+
+    private fun navigateToReviews(view: View) {
+        val directions = MovieDetailsFragmentDirections.actionMovieDetailsFragmentToReviewsFragment(
+            movie?.id ?: 0
+        )
+        Navigation.findNavController(view).navigate(directions)
     }
 
     private fun handleViewStateChange(viewState: MovieDetailsViewState) = when (viewState) {
@@ -96,13 +106,15 @@ class MovieDetailsFragment : AbstractFragment() {
             .into(ivPoster)
 
         tvOverview.text = overview
-        tvRating.text = getString(R.string.movie_details_rating_holder, voteAverage.toString(), voteCount)
+        tvRating.text =
+            getString(R.string.movie_details_rating_holder, voteAverage.toString(), voteCount)
         tvStatus.text = status
         tvReleaseDate.text = releaseDate
         tvBudget.text = DecimalFormat("#,###,###").format(budget)
 
         genres?.let {
-            rvGenres.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            rvGenres.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             rvGenres.adapter = RVGenresAdapter(context!!, it.toMutableList())
         }
     }

@@ -33,9 +33,7 @@ class LoginFragment : AbstractFragment() {
                 etPassword.text.toString()
             )
         }
-        tvSignUp.setOnClickListener {
-            navigateToRegistration()
-        }
+        tvSignUp.setOnClickListener(::navigateToRegistration)
     }
 
     private fun handleViewStateChange(viewState: LoginViewState) = when (viewState) {
@@ -79,8 +77,8 @@ class LoginFragment : AbstractFragment() {
         Navigation.findNavController(view!!).navigate(directions)
     }
 
-    private fun navigateToRegistration() {
+    private fun navigateToRegistration(view: View) {
         val directions = LoginFragmentDirections.actionLoginFragmentToRegistrationFragment()
-        Navigation.findNavController(view!!).navigate(directions)
+        Navigation.findNavController(view).navigate(directions)
     }
 }

@@ -48,6 +48,12 @@ class MoviesViewModel : AbstractViewModel() {
         if (!isFirstLoad) {
             viewState.value = MoviesViewState.ShowPaginating
         }
-        scope.launch { getPopularMoviesUseCase(page, ::handleGetPopularMoviesSuccess, ::handleGetPopularMoviesFailure) }
+        scope.launch {
+            getPopularMoviesUseCase(
+                page,
+                ::handleGetPopularMoviesSuccess,
+                ::handleGetPopularMoviesFailure
+            )
+        }
     }
 }

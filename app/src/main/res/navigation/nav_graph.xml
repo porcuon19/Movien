@@ -11,6 +11,13 @@
         <argument
             android:name="movieId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_reviewsFragment"
+            app:destination="@id/reviewsFragment"
+            app:enterAnim="@anim/enter_right_to_left"
+            app:exitAnim="@anim/exit_right_to_left"
+            app:popEnterAnim="@anim/enter_left_to_right"
+            app:popExitAnim="@anim/exit_left_to_right" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -50,4 +57,12 @@
         android:id="@+id/registrationFragment"
         android:name="kz.porcuon.movien.flow.registration.RegistrationFragment"
         android:label="RegistrationFragment" />
+    <fragment
+        android:id="@+id/reviewsFragment"
+        android:name="kz.porcuon.movien.flow.reviews.ReviewsFragment"
+        android:label="ReviewsFragment" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

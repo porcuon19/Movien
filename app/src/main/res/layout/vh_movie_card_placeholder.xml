@@ -9,7 +9,7 @@
     <View
         android:id="@+id/vPoster"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="420dp"
         android:background="#BDBDBD"
         app:layout_constraintTop_toTopOf="parent" />
 

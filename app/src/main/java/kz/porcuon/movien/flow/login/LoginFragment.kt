@@ -33,6 +33,9 @@ class LoginFragment : AbstractFragment() {
                 etPassword.text.toString()
             )
         }
+        tvSignUp.setOnClickListener {
+            navigateToRegistration()
+        }
     }
 
     private fun handleViewStateChange(viewState: LoginViewState) = when (viewState) {
@@ -68,12 +71,16 @@ class LoginFragment : AbstractFragment() {
     }
 
     private fun showLoginError() {
-        Toast.makeText(context, getString(R.string.login_invalid_credentials), Toast.LENGTH_SHORT)
-            .show()
+        Toast.makeText(context, getString(R.string.login_invalid_credentials), Toast.LENGTH_SHORT).show()
     }
 
     private fun navigateToHome() {
         val directions = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+        Navigation.findNavController(view!!).navigate(directions)
+    }
+
+    private fun navigateToRegistration() {
+        val directions = LoginFragmentDirections.actionLoginFragmentToRegistrationFragment()
         Navigation.findNavController(view!!).navigate(directions)
     }
 }

@@ -26,6 +26,13 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -39,4 +46,8 @@
             app:popEnterAnim="@anim/enter_left_to_right"
             app:popExitAnim="@anim/exit_left_to_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="kz.porcuon.movien.flow.registration.RegistrationFragment"
+        android:label="RegistrationFragment" />
 </navigation>

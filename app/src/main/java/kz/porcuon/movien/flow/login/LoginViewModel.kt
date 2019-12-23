@@ -2,10 +2,10 @@ package kz.porcuon.movien.flow.login
 
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
-import kz.porcuon.domain.use_cases.LoginUseCase
-import kz.porcuon.domain.use_cases.SaveAccountDetailsUseCase
 import kz.porcuon.domain.use_cases.UseCase
-import kz.porcuon.domain.use_cases.request_params.LoginParams
+import kz.porcuon.domain.use_cases.account.SaveAccountDetailsUseCase
+import kz.porcuon.domain.use_cases.auth.LoginUseCase
+import kz.porcuon.domain.use_cases.auth.params.LoginParams
 import kz.porcuon.movien.support.AbstractViewModel
 import org.koin.core.inject
 

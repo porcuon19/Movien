@@ -3,7 +3,7 @@ package kz.porcuon.movien.flow.movie_details
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import kz.porcuon.domain.data.movie.MovieFull
-import kz.porcuon.domain.use_cases.GetMovieByIdUseCase
+import kz.porcuon.domain.use_cases.movie.GetMovieByIdUseCase
 import kz.porcuon.movien.support.AbstractViewModel
 import org.koin.core.inject
 

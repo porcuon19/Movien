@@ -1,9 +1,10 @@
-package kz.porcuon.domain.use_cases
+package kz.porcuon.domain.use_cases.account
 
 import kz.porcuon.domain.functional.Either
 import kz.porcuon.domain.functional.Failure
 import kz.porcuon.domain.functional.Success
 import kz.porcuon.domain.repositories.AccountRepository
+import kz.porcuon.domain.use_cases.UseCase
 
 class SaveAccountDetailsUseCase(
     private val accountRepository: AccountRepository

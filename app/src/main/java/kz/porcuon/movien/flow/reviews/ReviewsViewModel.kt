@@ -3,7 +3,7 @@ package kz.porcuon.movien.flow.reviews
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import kz.porcuon.domain.data.review.ReviewResponse
-import kz.porcuon.domain.use_cases.GetMovieReviewsUseCase
+import kz.porcuon.domain.use_cases.review.GetMovieReviewsUseCase
 import kz.porcuon.movien.support.AbstractViewModel
 import org.koin.core.inject
 

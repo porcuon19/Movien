@@ -13,7 +13,7 @@ fun setSessionId(sessionId: String) {
     Hawk.put(PREFS_SESSION_ID, sessionId)
 }
 
-fun getSessionId(): String? {
+fun getSessionId(): String {
     return Hawk.get(PREFS_SESSION_ID)
 }
 
@@ -31,7 +31,7 @@ fun setAccountId(accountId: Int) {
     Hawk.put(PREFS_ACCOUNT_ID, accountId)
 }
 
-fun getAccountId(): Int? {
+fun getAccountId(): Int {
     return Hawk.get(PREFS_ACCOUNT_ID)
 }
 

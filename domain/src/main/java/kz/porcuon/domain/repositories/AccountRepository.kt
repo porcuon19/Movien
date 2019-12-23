@@ -12,4 +12,6 @@ interface AccountRepository {
     suspend fun deleteAccountByIdCache(accountId: Int)
 
     fun saveAccountId(accountId: Int)
+
+    fun deleteAccountId()
 }

@@ -11,4 +11,6 @@ interface AuthenticationRepository {
     suspend fun createSession(requestToken: String): Session
 
     fun saveSessionId(sessionId: String)
+
+    fun deleteSessionId()
 }

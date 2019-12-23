@@ -6,8 +6,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_profile.*
-import kz.porcuon.data.sources.preferences.clearAccountId
-import kz.porcuon.data.sources.preferences.clearSessionId
 import kz.porcuon.domain.data.account.Account
 import kz.porcuon.movien.R
 import kz.porcuon.movien.flow.home.HomeFragmentDirections
@@ -32,14 +30,12 @@ class ProfileFragment : AbstractFragment() {
 
     private fun handleViewStateChange(viewState: ProfileViewState) = when (viewState) {
         is ProfileViewState.ShowAccountDetails -> showAccountDetails(viewState.account)
+        is ProfileViewState.Logout -> logout()
     }
 
     private fun setupUI() {
         btnLogout.setOnClickListener {
-            clearSessionId()
-            clearAccountId()
-            val directions = HomeFragmentDirections.actionHomeFragmentToLoginFragment()
-            Navigation.findNavController(it).navigate(directions)
+            profileViewModel.logout()
         }
     }
 
@@ -47,5 +43,10 @@ class ProfileFragment : AbstractFragment() {
         etId.setText(account.id.toString())
         etUsername.setText(account.username)
         etName.setText(account.name)
+    }
+
+    private fun logout() {
+        val directions = HomeFragmentDirections.actionHomeFragmentToLoginFragment()
+        Navigation.findNavController(view!!).navigate(directions)
     }
 }

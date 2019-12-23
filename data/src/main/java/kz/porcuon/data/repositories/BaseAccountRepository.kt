@@ -5,6 +5,7 @@ import kz.porcuon.data.entities.account.toEntity
 import kz.porcuon.data.extensions.unwrap
 import kz.porcuon.data.sources.database.MovienDatabase
 import kz.porcuon.data.sources.network.AccountApi
+import kz.porcuon.data.sources.preferences.clearAccountId
 import kz.porcuon.data.sources.preferences.setAccountId
 import kz.porcuon.domain.data.account.Account
 import kz.porcuon.domain.repositories.AccountRepository
@@ -33,5 +34,9 @@ class BaseAccountRepository : AccountRepository, KoinComponent {
 
     override fun saveAccountId(accountId: Int) {
         setAccountId(accountId)
+    }
+
+    override fun deleteAccountId() {
+        clearAccountId()
     }
 }

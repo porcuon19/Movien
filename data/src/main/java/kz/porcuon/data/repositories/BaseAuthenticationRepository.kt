@@ -3,6 +3,7 @@ package kz.porcuon.data.repositories
 import kz.porcuon.data.entities.auth.toData
 import kz.porcuon.data.extensions.unwrap
 import kz.porcuon.data.sources.network.AuthenticationApi
+import kz.porcuon.data.sources.preferences.clearSessionId
 import kz.porcuon.data.sources.preferences.setSessionId
 import kz.porcuon.domain.data.auth.RequestToken
 import kz.porcuon.domain.data.auth.Session
@@ -28,5 +29,9 @@ class BaseAuthenticationRepository : AuthenticationRepository, KoinComponent {
 
     override fun saveSessionId(sessionId: String) {
         setSessionId(sessionId)
+    }
+
+    override fun deleteSessionId() {
+        clearSessionId()
     }
 }

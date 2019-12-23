@@ -3,6 +3,7 @@ package kz.porcuon.movien.di
 import kz.porcuon.domain.use_cases.account.GetAccountDetailsUseCase
 import kz.porcuon.domain.use_cases.account.SaveAccountDetailsUseCase
 import kz.porcuon.domain.use_cases.auth.LoginUseCase
+import kz.porcuon.domain.use_cases.auth.LogoutUseCase
 import kz.porcuon.domain.use_cases.movie.GetMovieByIdUseCase
 import kz.porcuon.domain.use_cases.movie.GetPopularMoviesUseCase
 import kz.porcuon.domain.use_cases.review.GetMovieReviewsUseCase
@@ -16,4 +17,5 @@ fun getModuleUseCase(): Module = module {
     factory { GetMovieReviewsUseCase(get()) }
     factory { SaveAccountDetailsUseCase(get()) }
     factory { GetAccountDetailsUseCase(get()) }
+    factory { LogoutUseCase(get(), get()) }
 }

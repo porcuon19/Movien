@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kz.porcuon.data.sources.preferences.clearAccountId
 import kz.porcuon.data.sources.preferences.clearSessionId
 import kz.porcuon.movien.R
 import kz.porcuon.movien.flow.home.HomeFragmentDirections
@@ -21,6 +22,7 @@ class ProfileFragment : AbstractFragment() {
     private fun setupUI() {
         btnLogout.setOnClickListener {
             clearSessionId()
+            clearAccountId()
             val directions = HomeFragmentDirections.actionHomeFragmentToLoginFragment()
             Navigation.findNavController(it).navigate(directions)
         }

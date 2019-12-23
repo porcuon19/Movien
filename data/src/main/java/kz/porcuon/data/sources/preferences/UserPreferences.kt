@@ -38,3 +38,5 @@ fun getAccountId(): Int? {
 fun clearAccountId() {
     Hawk.delete(PREFS_ACCOUNT_ID)
 }
+
+fun isAccountIdPresent(): Boolean = Hawk.contains(PREFS_ACCOUNT_ID)

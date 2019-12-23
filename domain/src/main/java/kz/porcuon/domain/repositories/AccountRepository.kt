@@ -3,9 +3,9 @@ package kz.porcuon.domain.repositories
 import kz.porcuon.domain.data.account.Account
 
 interface AccountRepository {
-    suspend fun getAccountById(): Account
+    suspend fun getAccountDetails(): Account
 
-    suspend fun getAccountByIdCache(accountId: Int): Account
+    suspend fun getAccountDetailsCache(accountId: Int): Account
 
     suspend fun saveAccountCache(account: Account)
 

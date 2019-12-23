@@ -24,8 +24,7 @@ class AccountEntity : Serializable {
 
 fun AccountEntity.toData(): Account {
     val entity = this
-    return Account().apply {
-        id = entity.id
+    return Account(id ?: 0).apply {
         username = entity.username
         name = entity.name
         includeAdult = entity.includeAdult

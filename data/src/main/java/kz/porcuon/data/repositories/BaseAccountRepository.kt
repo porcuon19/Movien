@@ -12,15 +12,14 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class BaseAccountRepository : AccountRepository, KoinComponent {
-
     private val database: MovienDatabase by inject()
     private val accountApi: AccountApi by inject()
 
-    override suspend fun getAccountById(): Account {
+    override suspend fun getAccountDetails(): Account {
         return accountApi.getAccountDetails().unwrap().toData()
     }
 
-    override suspend fun getAccountByIdCache(accountId: Int): Account {
+    override suspend fun getAccountDetailsCache(accountId: Int): Account {
         return database.accountDao().getAccountById(accountId).toData()
     }
 

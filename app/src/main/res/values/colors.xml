@@ -3,7 +3,14 @@
     <color name="colorPrimary">#141414</color>
     <color name="colorPrimaryDark">#141414</color>
     <color name="colorAccent">#FFC107</color>
-    <color name="colorAccentSecondary">#4f92ff</color>
+    <color name="colorAccentSecondary">#4F92FF</color>
+    <color name="colorAccentOrange">#FF7A21</color>
+    <color name="colorAccentRed">#FF2626</color>
 
-    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fff</color>
+    <color name="colorTextWhite">#FFFFFF</color>
+    <color name="colorTextGrayLight">#787878</color>
+    <color name="colorSeparatorGrayLight">#787878</color>
+    <color name="colorImagePlaceholder">#787878</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#FFFFFF</color>
 </resources>

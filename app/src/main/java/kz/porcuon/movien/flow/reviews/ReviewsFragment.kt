@@ -44,15 +44,20 @@ class ReviewsFragment : AbstractFragment() {
     private fun handleViewStateChange(viewState: ReviewsViewState) = when (viewState) {
         is ReviewsViewState.HideLoading -> hideLoading()
         is ReviewsViewState.ShowReviews -> showReviews(viewState.reviews)
+        is ReviewsViewState.ShowEmptyReviews -> showEmptyReviews()
     }
 
     private fun hideLoading() {
         pbReviewsLoad.visibility = View.GONE
-        rvReviews.visibility = View.VISIBLE
     }
 
     private fun showReviews(reviews: List<ReviewResponse.Review>) {
+        rvReviews.visibility = View.VISIBLE
         adapter.addItems(reviews.toMutableList())
+    }
+
+    private fun showEmptyReviews() {
+        llStatus.visibility = View.VISIBLE
     }
 
     private fun onBackButtonClicked(view: View) {

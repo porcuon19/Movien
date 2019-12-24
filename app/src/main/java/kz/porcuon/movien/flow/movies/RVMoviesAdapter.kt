@@ -42,6 +42,7 @@ class RVMoviesAdapter(
             Glide.with(context)
                 .load(model.posterPath)
                 .transition(DrawableTransitionOptions.withCrossFade())
+                .fitCenter()
                 .into(ivPoster)
 
             ivShare.setOnClickListener { onShareClicked(model.id ?: 0) }

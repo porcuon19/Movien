@@ -10,6 +10,9 @@ import kz.porcuon.movien.R
 import kz.porcuon.movien.support.RVPageableAdapter
 import kz.porcuon.movien.support.VHAbstract
 
+private const val MAX_LINES = Int.MAX_VALUE
+private const val MIN_LINES = 3
+
 class RVReviewsAdapter(
     private val context: Context,
     reviews: MutableList<ReviewResponse.Review>
@@ -24,6 +27,16 @@ class RVReviewsAdapter(
         override fun bind(model: ReviewResponse.Review) = with(itemView) {
             tvAuthor.text = model.author
             tvContent.text = model.content
+            tvShow.visibility = if (tvContent.lineCount > 3) View.GONE else View.VISIBLE
+            tvShow.setOnClickListener {
+                if (tvContent.maxLines == MAX_LINES) {
+                    tvContent.maxLines = MIN_LINES
+                    tvShow.text = context.getString(R.string.fragment_reviews_show_more)
+                } else {
+                    tvContent.maxLines = MAX_LINES
+                    tvShow.text = context.getString(R.string.fragment_reviews_show_less)
+                }
+            }
         }
     }
 }

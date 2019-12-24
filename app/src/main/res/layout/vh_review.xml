@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
     <TextView
         android:id="@+id/tvAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
         android:textColor="#787878"
         android:textSize="16sp"
         tools:text="msbreviews" />
@@ -21,17 +21,20 @@
         android:id="@+id/tvContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
         android:lineSpacingExtra="6dp"
+        android:maxLines="3"
         android:textColor="#FFF"
         android:textSize="16sp"
         tools:text="The Joker is similar to the DC Joker character but is not a criminal genius. The movie was a great depiction of how a person who has been mistreated, lied to, and ignored, totally lacking access to human compassion, can snap. The acting is top notch, and it puts a spotlight on the importance of mental health in modern times." />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
-        android:background="#787878" />
+    <TextView
+        android:id="@+id/tvShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/fragment_reviews_show_more"
+        android:textColor="@color/colorAccentSecondary"
+        android:textStyle="bold" />
 </LinearLayout>

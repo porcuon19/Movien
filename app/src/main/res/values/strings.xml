@@ -25,4 +25,7 @@
     <string name="profile_logout">Logout</string>
     <!--REVIEWS-->
     <string name="fragment_reviews_reviews">Reviews</string>
+    <string name="fragment_reviews_show_more">SHOW MORE</string>
+    <string name="fragment_reviews_show_less">SHOW LESS</string>
+    <string name="fragment_reviews_empty">No reviews yet</string>
 </resources>

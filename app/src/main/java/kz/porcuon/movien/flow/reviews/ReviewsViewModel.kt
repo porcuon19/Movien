@@ -15,7 +15,10 @@ class ReviewsViewModel : AbstractViewModel() {
 
     private fun handleLoadReviewsSuccess(reviewResponse: ReviewResponse) {
         viewState.value = ReviewsViewState.HideLoading
-        viewState.value = ReviewsViewState.ShowReviews(reviewResponse.results ?: ArrayList())
+        reviewResponse.results?.let {
+            viewState.value =
+                if (it.isEmpty()) ReviewsViewState.ShowEmptyReviews else ReviewsViewState.ShowReviews(it)
+        }
     }
 
     private fun handleLoadReviewsFailure(throwable: Throwable) {

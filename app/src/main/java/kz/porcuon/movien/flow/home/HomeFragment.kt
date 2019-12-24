@@ -17,8 +17,7 @@ class HomeFragment : AbstractFragment() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_bottom_popular -> viewPager.currentItem = 0
-                R.id.menu_bottom_favorites -> viewPager.currentItem = 1
-                R.id.menu_bottom_profile -> viewPager.currentItem = 2
+                R.id.menu_bottom_profile -> viewPager.currentItem = 1
             }
             true
         }

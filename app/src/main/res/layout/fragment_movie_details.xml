@@ -26,7 +26,7 @@
             <ImageView
                 android:id="@+id/ivPoster"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
+                android:layout_height="420dp"
                 android:background="#787878"
                 android:scaleType="fitXY"
                 app:layout_collapseMode="parallax" />
@@ -51,22 +51,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!--TODO color hardcode-->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_favorite_white_24dp"
-        app:backgroundTint="#FF2626"
-        app:layout_anchor="@id/appBarLayout"
-        app:layout_anchorGravity="bottom|right|end" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone"
+        android:layout_marginTop="220dp"
         tools:visibility="visible" />
 
     <androidx.core.widget.NestedScrollView

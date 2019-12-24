@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fragment_movie_details.*
-import kz.porcuon.domain.data.movie.MovieFull
+import kz.porcuon.domain.data.movie.MovieDetails
 import kz.porcuon.movien.R
 import kz.porcuon.movien.support.AbstractFragment
 import java.text.DecimalFormat
@@ -23,7 +23,7 @@ class MovieDetailsFragment : AbstractFragment() {
         ViewModelProviders.of(this).get(MovieDetailsViewModel::class.java)
     }
 
-    private var movie: MovieFull? = null
+    private var movie: MovieDetails? = null
 
     override val layoutId: Int = R.layout.fragment_movie_details
 
@@ -96,7 +96,7 @@ class MovieDetailsFragment : AbstractFragment() {
         progressBar.visibility = View.GONE
     }
 
-    private fun showMovie(movieFull: MovieFull) = with(movieFull) {
+    private fun showMovie(movieDetails: MovieDetails) = with(movieDetails) {
         movie = this
         llContent.visibility = View.VISIBLE
 

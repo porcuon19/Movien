@@ -3,7 +3,7 @@ package kz.porcuon.data.repositories
 import kz.porcuon.data.entities.movie.toData
 import kz.porcuon.data.extensions.unwrap
 import kz.porcuon.data.sources.network.MovieApi
-import kz.porcuon.domain.data.movie.MovieFull
+import kz.porcuon.domain.data.movie.MovieDetails
 import kz.porcuon.domain.data.movie.MovieResponse
 import kz.porcuon.domain.repositories.MovieRepository
 import org.koin.core.KoinComponent
@@ -17,7 +17,7 @@ class BaseMovieRepository : MovieRepository, KoinComponent {
         return movieApi.getPopularMovies(page).unwrap().toData()
     }
 
-    override suspend fun getMovieById(movieId: Int): MovieFull {
+    override suspend fun getMovieById(movieId: Int): MovieDetails {
         return movieApi.getMovieById(movieId).unwrap().toData()
     }
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import kotlinx.android.synthetic.main.vh_movie_card.view.*
-import kz.porcuon.domain.data.movie.MovieResponse
+import kz.porcuon.domain.data.movie.Movie
 import kz.porcuon.movien.R
 import kz.porcuon.movien.support.RVPageableAdapter
 import kz.porcuon.movien.support.VHAbstract
@@ -16,10 +16,10 @@ class RVMoviesAdapter(
     private val context: Context,
     private val onMovieClicked: (View, Int) -> Unit,
     private val onShareClicked: (Int) -> Unit,
-    movies: MutableList<MovieResponse.Movie>
-) : RVPageableAdapter<MovieResponse.Movie>(movies) {
+    movies: MutableList<Movie>
+) : RVPageableAdapter<Movie>(movies) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHAbstract<MovieResponse.Movie> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHAbstract<Movie> {
         val view = LayoutInflater.from(context).inflate(viewType, parent, false)
         return when(viewType) {
             R.layout.vh_loader -> VHLoader(view)
@@ -33,8 +33,8 @@ class RVMoviesAdapter(
         else -> R.layout.vh_movie_card
     }
 
-    inner class VHMovie(itemView: View) : VHAbstract<MovieResponse.Movie>(itemView) {
-        override fun bind(model: MovieResponse.Movie) = with(itemView) {
+    inner class VHMovie(itemView: View) : VHAbstract<Movie>(itemView) {
+        override fun bind(model: Movie) = with(itemView) {
             tvTitle.text = model.title
             tvOverview.text = model.overview
             tvRating.text = model.voteAverage.toString()
@@ -51,7 +51,7 @@ class RVMoviesAdapter(
         }
     }
 
-    inner class VHLoader(itemView: View) : VHAbstract<MovieResponse.Movie>(itemView) {
-        override fun bind(model: MovieResponse.Movie) { }
+    inner class VHLoader(itemView: View) : VHAbstract<Movie>(itemView) {
+        override fun bind(model: Movie) { }
     }
 }

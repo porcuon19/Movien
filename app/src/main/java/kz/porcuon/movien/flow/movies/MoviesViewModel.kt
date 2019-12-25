@@ -2,7 +2,7 @@ package kz.porcuon.movien.flow.movies
 
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
-import kz.porcuon.domain.data.movie.MovieResponse
+import kz.porcuon.domain.data.movie.Movie
 import kz.porcuon.domain.use_cases.movie.GetPopularMoviesUseCase
 import kz.porcuon.movien.support.AbstractViewModel
 import org.koin.core.inject
@@ -22,7 +22,7 @@ class MoviesViewModel : AbstractViewModel() {
         viewState.value = MoviesViewState.ShowLoading
     }
 
-    private fun handleGetPopularMoviesSuccess(movieResponse: MovieResponse) {
+    private fun handleGetPopularMoviesSuccess(movies: List<Movie>) {
         if (isFirstLoad) {
             viewState.value = MoviesViewState.HideLoading
             isFirstLoad = false
@@ -30,7 +30,7 @@ class MoviesViewModel : AbstractViewModel() {
             viewState.value = MoviesViewState.HidePaginating
         }
 
-        viewState.value = MoviesViewState.ShowMovies(movieResponse.results ?: ArrayList())
+        viewState.value = MoviesViewState.ShowMovies(movies)
         page++
     }
 

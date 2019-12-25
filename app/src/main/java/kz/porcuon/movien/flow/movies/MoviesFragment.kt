@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_movies.*
-import kz.porcuon.domain.data.movie.MovieResponse
+import kz.porcuon.domain.data.movie.Movie
 import kz.porcuon.movien.R
 import kz.porcuon.movien.flow.home.HomeFragmentDirections
 import kz.porcuon.movien.support.AbstractFragment
@@ -54,7 +54,7 @@ class MoviesFragment : AbstractFragment() {
         is MoviesViewState.HideLoading -> hideLoading()
         is MoviesViewState.ShowPaginating -> showPaginating()
         is MoviesViewState.HidePaginating -> hidePaginating()
-        is MoviesViewState.ShowMovies -> showMovies(viewState.details)
+        is MoviesViewState.ShowMovies -> showMovies(viewState.movies)
     }
 
     private fun showLoading() {
@@ -77,9 +77,9 @@ class MoviesFragment : AbstractFragment() {
         adapter.removeLoader()
     }
 
-    private fun showMovies(details: List<MovieResponse.Movie>) {
+    private fun showMovies(movies: List<Movie>) {
         rvMovies.visibility = View.VISIBLE
-        adapter.addItems(details.toMutableList())
+        adapter.addItems(movies.toMutableList())
     }
 
     private fun navigateToMovieDetails(view: View, movieId: Int) {

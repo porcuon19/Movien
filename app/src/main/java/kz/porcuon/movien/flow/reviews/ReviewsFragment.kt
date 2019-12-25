@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_reviews.*
-import kz.porcuon.domain.data.review.ReviewResponse
+import kz.porcuon.domain.data.review.Review
 import kz.porcuon.movien.R
 import kz.porcuon.movien.flow.movie_details.MovieDetailsFragmentArgs
 import kz.porcuon.movien.support.AbstractFragment
@@ -51,7 +51,7 @@ class ReviewsFragment : AbstractFragment() {
         pbReviewsLoad.visibility = View.GONE
     }
 
-    private fun showReviews(reviews: List<ReviewResponse.Review>) {
+    private fun showReviews(reviews: List<Review>) {
         rvReviews.visibility = View.VISIBLE
         adapter.addItems(reviews.toMutableList())
     }

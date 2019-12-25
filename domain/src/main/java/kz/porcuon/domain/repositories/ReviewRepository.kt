@@ -1,7 +1,7 @@
 package kz.porcuon.domain.repositories
 
-import kz.porcuon.domain.data.review.ReviewResponse
+import kz.porcuon.domain.data.review.Review
 
 interface ReviewRepository {
-    suspend fun getMovieReviews(movieId: Int): ReviewResponse
+    suspend fun getMovieReviews(movieId: Int): List<Review>
 }

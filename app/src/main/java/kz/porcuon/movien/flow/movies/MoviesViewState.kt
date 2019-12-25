@@ -1,6 +1,6 @@
 package kz.porcuon.movien.flow.movies
 
-import kz.porcuon.domain.data.movie.MovieResponse
+import kz.porcuon.domain.data.movie.Movie
 
 /*TODO add error states*/
 sealed class MoviesViewState {
@@ -9,5 +9,5 @@ sealed class MoviesViewState {
     object HidePaginating : MoviesViewState()
     object HideLoading : MoviesViewState()
 
-    class ShowMovies(val details: List<MovieResponse.Movie>) : MoviesViewState()
+    class ShowMovies(val movies: List<Movie>) : MoviesViewState()
 }
